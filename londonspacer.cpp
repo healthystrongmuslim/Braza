@@ -4,7 +4,7 @@ Muhammad Musaab
 */
 #include "stdc++.h"
 using namespace std;
-/*
+
 int main(){
     string s; int i=0;
     cout<<"Enter string:";
@@ -16,4 +16,3 @@ int main(){
         for (int j=0;j<i*2-1;j++) cout <<"⠀";
     }
 }
-*/
