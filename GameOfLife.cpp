@@ -16,7 +16,7 @@
 	And that’s all there is to Life. These 4 rules give rise to some unbelievably complex and
 	beautiful patterns, and an equally unbelievable quantity of analysis by Life devotees intent on
 	discovering new ones.
-	*/
+*/
 /* i did that as well as make an adjustable radius
 change the dead-alive to 1-0
 */
