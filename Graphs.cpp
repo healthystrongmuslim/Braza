@@ -1,12 +1,11 @@
-// 22i1560 CY-B
 //  Graphs.cpp
-//  mm
-// uncomment the printfs to show the cycle checking, BFS and DFS paths
-// also added removeEdge function for graph (and respectively for AdjLst)
+//	uncomment the printfs to show the cycle checking, BFS and DFS paths
+//	also added removeEdge function for graph (and respectively for AdjLst)
 //  Created by Muhammad Musab on 23/11/2023.
-//
+//	Queue was used for BFS, and to track DFS visiting/popping sequence.
+//	Stack class is defined, but no Stack object was made here because the recursive calling in the DFS function means it uses a stack.
 
-#include "./stdc++.h"
+#include "stdc++.h"
 using namespace std;
 
 class Node{
@@ -98,7 +97,7 @@ public:
 				void DFS(int ss=0, bool *visd=0,Queue *ordpop=0,Queue *ordvis=0){//ss determines the starting vertex
 								mod(ss, Vs); bool starter=0;
 								if(visd==0){starter=1;
-												printf("\33[33mDFS traversal start");
+												printf("\33[33mDFS traversal\n");
 												visd=new bool[Vs]; ordpop=new Queue; ordvis=new Queue;for(int i=0;i<Vs;visd[i++]=0);
 												visd[ss]=1;	ordvis->push(ss);}
 								Node* t=al[ss].h->x;
@@ -114,7 +113,8 @@ public:
 								if(starter) {ordpop->push(ss);
 												printf("\33[0mOrder of Poppy:\33[96m");ordpop->print();
 												printf("\33[0mOrder of Visit:\33[96m");ordvis->print();
-												endc(); delete[] visd; delete ordpop;delete ordvis;}
+												printf("\33[0m");
+												delete[] visd; delete ordpop;delete ordvis;}
 				}
 				void BFS(int ss=0){//ss determines the starting vertex
 								mod(ss, Vs);printf("\33[32mBFS traversal");
@@ -123,9 +123,10 @@ public:
 								visd[ss]=1;
 								for(int i=0;i<Vs and not q.mt(); q.pop()){
 												int cur=q.h->d;Node* t=al[cur].h->x; ord[i++]=cur;
-												printf("\n\33[32mfrom %i:\t\33[33m",cur);
+												//printf("\n\33[32mfrom %i:\t\33[33m",cur);
 												while(t){
-																if(!visd[t->d]){printf("%i ",t->d); visd[t->d]=1; q.push(t->d);}
+																if(!visd[t->d]){//printf("%i ",t->d);
+																																				visd[t->d]=1; q.push(t->d);}
 																t=t->x;
 												}
 								}
@@ -162,7 +163,7 @@ private:
 
 int main(){int Vs=6;
 				Graph g(Vs);
-				g.insertEdge(1,0), g.showGraphStructure(), g.cycle(); g.BFS(), g.DFS(1);// not cycle
-				g.insertEdge(1,2), g.insertEdge(2,3), g.insertEdge(4,3), g.insertEdge(5,4), g.showGraphStructure(), g.cycle(); g.BFS(),g.DFS(1);//not cycle
-				g.insertEdge(1,5), 	g.showGraphStructure(), g.cycle();g.BFS(), g.DFS(1);//cycle
+				g.insertEdge(1,0), g.showGraphStructure(), g.cycle(); g.BFS(2), g.DFS(2);// not cycle
+				g.insertEdge(1,2), g.insertEdge(2,3), g.insertEdge(4,3), g.insertEdge(5,4), g.showGraphStructure(), g.cycle(); g.BFS(2),g.DFS(2);//not cycle
+				g.insertEdge(1,5), 	g.showGraphStructure(), g.cycle();g.BFS(2), g.DFS(2);//cycle
 }
