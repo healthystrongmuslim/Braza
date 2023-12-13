@@ -193,11 +193,10 @@ public:
     bool empty(){return !root;}
 };
 void foo(){;}
-/*
+
 	int main(){
 				
     AVL tree= new Node(0); int n;
     for(int i=-1;i++<6;tree.insert(n)) cin>>n;
     
 }
-*/
