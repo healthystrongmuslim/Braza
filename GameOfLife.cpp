@@ -1,8 +1,7 @@
 //  
 //  Home Task 2
 //  Created by Muhammad Musab on 27/08/2023.
-/*
-	Game of Life
+/*Game of Life
 	Introduction to Life
 	Game of Life (or just “Life”) is not really a game. There’s no winning or losing or destroying your opponent mentally and spiritually. Life is a “cellular automaton” - a system of cells that live on a grid, where they live, die and evolve according to the rules that govern their world.
 	Life’s simple, elegant rules give rise to astonishingly complex emergent behavior. It is played on a 2-D grid Each square in the grid contains a cell, and each cell starts the game as either “alive” or “dead”. Play proceeds in rounds. During each round, each cell looks at its 8 immediate neighbors and counts up the number of them that are currently alive. Make a type char 30 x 30 2D grid. Randomly assign active and dead cells. Active cells will have value ‘*’ and dead cell will have value ‘ ’.
