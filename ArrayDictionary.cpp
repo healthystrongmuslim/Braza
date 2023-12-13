@@ -1,12 +1,8 @@
 /**  ArrayDictionary..cpp
  Practise Task 1
- Created by Muhammad Musab on 27/08/2023.
- 
- 
- 
- 
+ Created by Muhammad Musab on 27/08/2023
  */
-#include "./stdc++.h"//include <bits/stdc++.h> to run on linux (i made this on mac, with the header file in the same folder as this .cpp).
+#include "stdc++.h"
 using namespace std;
 unsigned st=time(0);
 class Person{
@@ -116,52 +112,3 @@ bool dserch(const string m,Person**pdct, int digc[10], std::chrono::duration<lon
     //cout<< "\33[1mCNIC "<<((mch)?"\33[32mfound":"\33[31mNOT found")<<"!\33[0m\n";
     return mch;
 }
-
-
-/**
- 22i1560 Muhammad Musaab
- I wrote code that:
- 1. shows times taken for the same search query in both algorithms.
- 2. tells which was faster
- 3. shows the difference in search-times and the ratio of the search-times (to show how much faster the faster search was compared to the slower one)
-
- Dictionary search is faster most of the time, but in the very few cases when the matching record is very close to the start of the data, the array search was sometimes faster
-
- !!!Below is a result when I searched the CNIC of 100th entry (of the 100000 entries)!!!:
- Search another cnic? (Enter y for yes)    y
- Enter cnic to search:    642251356
- CNIC found!
- CNIC found!
- Array took:        0.038458 milliseconds.
- Dictionary took:    0.038375 milliseconds.
-
- dictionary was faster
- Time difference:    8.3e-05
- Time ratio:        1.00216
-
- 
- !!!Here is a result when I searched an entry that is roughly halfway through the array!!!:
- Search another cnic? (Enter y for yes)    y
- Enter cnic to search:    121900078
- CNIC found!
- CNIC found!
- Array took:        0.218166 milliseconds.
- Dictionary took:    0.024375 milliseconds.
-
- dictionary was faster
- Time difference:    0.193791
- Time ratio:        8.9504
-
-
- !!!A search query with no matches!!!:
- Search another cnic? (Enter y for yes)    y
- Enter cnic to search:    288917560
- CNIC NOT found!
- CNIC NOT found!
- Array took:        21.6233 milliseconds.
- Dictionary took:    2.88892 milliseconds.
-
- dictionary was faster
- Time difference:    18.7344
- Time ratio:        7.48491
- */
