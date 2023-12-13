@@ -4,7 +4,7 @@
 //
 //  Created by Muhammad Musab on 2/11/2023.
 //
-#include "./stdc++.h"
+#include "stdc++.h"
 using namespace std;
 
 class Node{
