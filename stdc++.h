@@ -114,8 +114,8 @@
 #include <unordered_map>
 #include <unordered_set>
 #endif
-//unsigned int mod(int n,int k){return n= n%k + k*(n<0);}
-unsigned int mod(int &n,int k){return n= n%k + k*(n<0);}
+template <typename t>
+t mod(t n,int k){return (k>0)? n= n%k + k*(n<0): 0;}
 const char endcl[]="\33[0m\n";
 const char* endc(){std::cout<<endcl;return endcl;}
 /*
