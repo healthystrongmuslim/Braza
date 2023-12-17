@@ -97,7 +97,7 @@ public:
 				void DFS(int ss=0, bool *visd=0,Queue *ordpop=0,Queue *ordvis=0){//ss determines the starting vertex
 								mod(ss, Vs); bool starter=0;
 								if(visd==0){starter=1;
-												printf("\33[33mDFS traversal\n");
+												printf("\33[33mDFS traversal (starting from %i)\n",ss);
 												visd=new bool[Vs]; ordpop=new Queue; ordvis=new Queue;for(int i=0;i<Vs;visd[i++]=0);
 												visd[ss]=1;	ordvis->push(ss);}
 								Node* t=al[ss].h->x;
@@ -117,7 +117,7 @@ public:
 												delete[] visd; delete ordpop;delete ordvis;}
 				}
 				void BFS(int ss=0){//ss determines the starting vertex
-								mod(ss, Vs);printf("\33[32mBFS traversal");
+								mod(ss, Vs);printf("\33[32mBFS traversal (starting from %i)",ss);
 								Queue q; q.push(ss);
 								bool *visd=new bool[Vs];int *ord=new int[Vs]; for(int i=0;i<Vs;visd[i++]=0, ord[i]=-1);
 								visd[ss]=1;
