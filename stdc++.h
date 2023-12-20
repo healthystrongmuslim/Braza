@@ -115,7 +115,7 @@
 #include <unordered_set>
 #endif
 template <typename t>
-t mod(t n,int k){return (k>0)? n= n%k + k*(n<0): 0;}
+t mod(t& n,int k){return (k>0)? n= n%k + k*(n<0): 0;}
 const char endcl[]="\33[0m\n";
 const char* endc(){std::cout<<endcl;return endcl;}
 /*
