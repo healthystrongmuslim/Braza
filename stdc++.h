@@ -115,7 +115,7 @@
 #include <unordered_set>
 #endif
 template <class moddingclass,typename t>
-t mod(t& n,moddingclass k){return (k>0)? n= n%k + k*((n%k)<0): 0;}
+t mod(t n,moddingclass k){return (k>0)? n= n%k + k*((n%k)<0): 0;}
 
 template <class moddingclass>
 void mods(moddingclass m){}
@@ -123,7 +123,7 @@ void mods(moddingclass m){}
 template <class moddingclass,class T,typename... Args>
 void mods(moddingclass m, T& b, Args&... a){
 				//printf("\e[91;1mmodding %i by %i\n\e[0m",b,m);
-				mod(b,m);
+				b=mod(b,m);
 				mods(m,a...);
 }
 
