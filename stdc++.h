@@ -129,6 +129,12 @@ void mods(moddingclass m, T& b, Args&... a){
 
 const char endcl[]="\33[0m\n";
 const char* endc(){std::cout<<endcl;return endcl;}
+void plswait(long double k){//float seconds value as argument
+	// sleep_for(), sleep() and all those other functions don't work on mac terminal so i made this
+				struct timespec remaining, request = { static_cast<long>(k),
+								static_cast<long>(long((k-(long)k)*1000000000)%1000000000)};
+				nanosleep(&request, &remaining);
+}
 /*
 	Name            FG  BG
 	Black           30  40
@@ -148,3 +154,16 @@ const char* endc(){std::cout<<endcl;return endcl;}
 	Bright Cyan     96  106
 	Bright White    97  107
 	*/
+template <class rangingclass,typename t>
+t rangein(t & n,rangingclass end,rangingclass start=0){//given a number n, the range from start to end is sized up, the number is modded by the size. start is added as the starting point. if start > end, range count is backwards.
+				(end!=start)? (end>start)? mod(n,end-start+1): (mod(n,start-end+1),n*=-1):n=0;n+=start;
+				return n;
+}
+template <class rangingclass>
+void rangeins(rangingclass start, rangingclass end){}
+template <class rangingclass,class T,typename... Args>
+void rangeins(rangingclass start,rangingclass end, T& b, Args&... a){
+				//printf("\e[91;1msetting %i in range:%i—%i\n\e[0m",b,start,end);
+				rangein(b,end,start);
+				rangeins(start,end,a...);
+}
