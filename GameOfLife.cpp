@@ -37,6 +37,7 @@ int main(){
 												for (j=0;j<x; bord[i][j++]=rand()%2);
 				char cont='y';
 				while(cont=='y'){
+								plswait(0.1);
 								disp(bord);
 								cout<<"Enter 'y' n times for n iterations, Enter other key to quit:\t";
 								cin>>cont;
