@@ -1,8 +1,7 @@
-//  
 //  Home Task 2
 //  Created by Muhammad Musab on 27/08/2023.
-/*Game of Life
-	Introduction to Life
+/*
+Game of Life
 	Game of Life (or just “Life”) is not really a game. There’s no winning or losing or destroying your opponent mentally and spiritually. Life is a “cellular automaton” - a system of cells that live on a grid, where they live, die and evolve according to the rules that govern their world.
 	Life’s simple, elegant rules give rise to astonishingly complex emergent behavior. It is played on a 2-D grid Each square in the grid contains a cell, and each cell starts the game as either “alive” or “dead”. Play proceeds in rounds. During each round, each cell looks at its 8 immediate neighbors and counts up the number of them that are currently alive. Make a type char 30 x 30 2D grid. Randomly assign active and dead cells. Active cells will have value ‘*’ and dead cell will have value ‘ ’.
 	In Above diagram Blue cell is the current cell whereas Red cells are its neighboring cells
@@ -11,10 +10,9 @@
 	2. Any live cell with 2 or 3 live neighbors stays alive, because its neighborhood is just right
 	3. Any live cell with more than 3 live neighbors becomes dead, because of overpopulation
 	4. Any dead cell with exactly 3 live neighbors becomes alive, by reproduction
-	Run your code for infinite rounds and observe the pattern changing
-	And that’s all there is to Life. These 4 rules give rise to some unbelievably complex and
-	beautiful patterns, and an equally unbelievable quantity of analysis by Life devotees intent on
-	discovering new ones.*/
+	Run your code for infinite rounds and observe the pattern changing.
+	And that’s all there is to Life. These 4 rules give rise to some unbelievably complex and beautiful patterns, and an equally unbelievable quantity of analysis by Life devotees intent on discovering new ones.
+ */
 /* i did that as well as make an adjustable radius
 change the dead-alive to 1-0
 */
@@ -30,8 +28,6 @@ int main(){long double delay;char cont='y';
 				cout<<"Enter board size and delay (seconds) :\t\n(default to 9 and 0.06;\tEnter 'y's to continue from default.)";
 				try{cin>>x;if(cin.fail() || x<1) throw 1;cin>>delay; if(cin.fail() || delay<0) throw 0;}
 				catch(int n){if(n)x=9; delay=0.06; cin.clear();}
-				cout<<"Enter board size:\t";
-				cin>>x;
 				int i=0, j=0; unsigned st=time(0); srand(st);
 				bool** bord =new bool* [x];
 				for(i=0;i<x; bord[i++]=new bool[x]);
@@ -50,7 +46,7 @@ int main(){long double delay;char cont='y';
 				std::chrono::duration<long double, milli> time_put=t2-t1;
 				cout << "\n\33[1;44mRun took:\t\t" << time_put.count() << " milliseconds.\33[0m\n";
 //				disp(bord);
-				//if line 45 (full animation print) is commented, uncomment line 52 and 41 (print initial and final state only), and vice versa
+				//if line 41 (full animation print) is commented, uncomment line 37 and 48 (print initial and final state only), and vice versa
 				dltarr(bord);
 }
 
