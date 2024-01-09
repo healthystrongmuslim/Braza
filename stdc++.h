@@ -129,7 +129,7 @@ void mods(moddingclass m, T& b, Args&... a){
 
 const char endcl[]="\33[0m\n";
 const char* endc(){std::cout<<endcl;return endcl;}
-inline void cls(){cout << "\e[2J\e[1;1H";}
+inline void cls(){printf("\e[2J\e[1;1H");}
 inline void plswait(long double k){//float seconds value as argument
 	// sleep_for(), sleep() and all those other functions don't work on mac terminal so i made this
 				struct timespec remaining, request = { static_cast<long>(k),
