@@ -27,7 +27,7 @@ void dltarr(bool**);
 int main(){long double delay;char cont='y';
 				cout<<"Enter board size and delay (seconds) :\t\n(default to 9 and 0.06;\tEnter 'y's to continue from default.)";
 				try{cin>>x;if(cin.fail() || x<1) throw 1;cin>>delay; if(cin.fail() || delay<0) throw 0;}
-				catch(int n){if(n)x=9; delay=0.06; cin.clear();}
+				catch(int n){if(n)x=9; delay=0.04; cin.clear();}
 				int i=0, j=0; unsigned st=time(0); srand(st);
 				bool** bord =new bool* [x];
 				for(i=0;i<x; bord[i++]=new bool[x]);
@@ -35,7 +35,7 @@ int main(){long double delay;char cont='y';
 								for (i=0;i<x;i++)
 												for (j=0;j<x; bord[i][j++]=rand()%2);
 				//				disp(bord);
-				std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
+				cls(); std::chrono::high_resolution_clock::time_point t1 = std::chrono::high_resolution_clock::now();
 			while(cont=='y'){
 								plswait(delay);
 								disp(bord); cout<<"Enter 'y' n times for n iterations, Enter other key to quit:\t";
@@ -52,7 +52,7 @@ int main(){long double delay;char cont='y';
 
 
 void disp(bool** A){
-				cls();
+				printf("\e[H");
 				for(int i=0; i<x; cout<<i++<<endl)
 								for(int j=0; j<x; cout<<"\33["<<((A[i][j++])?41:104)<<"m   \33[0m");//41 for red dead cells, 104 for bright blue living cells
 				for(int i=0; i<x; cout<<((i>9)? " ":"  ")<<i++);
