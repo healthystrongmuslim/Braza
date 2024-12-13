@@ -6,7 +6,7 @@
 using namespace std;
 unsigned long st=time(0);
 time_t result=time(nullptr);
-ifstream datain("/Users/healthystrongmuslim/Documents/DataStructuresProject/DataStructuresProject/DataProjectData.txt");//need absolute file path of DataProjectData.txt here for some reason
+ifstream datain("/Users/healthystrongmuslim/Documents/DataStructuresProject/DataStructuresProject/DataProjectData.txt");
 ofstream outt("File55.txt");
 int login(){string s,p; cout<<"\33[30;107m||Login||\nEnter C for Controller, truck id# (0-4) for Truck drivers, then enter password: ";
 				cin>>s;
