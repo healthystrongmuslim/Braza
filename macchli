@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <termios.h>
+bool isalpha(char c)
+{return (c>='A' and c<='Z') or (c>='a' and c<='z');}
+void printTurn(int &i,int &j, int &m)
+{
+  switch(m/i)
+  {
+    case 0: printf("%i machhli ",i);break;
+    case 1: printf("pānī mēñ gyī ");break;
+    case 2: printf("chhapaak! ");break;
+    default: printf("\e[0;41mj=%i m=%i i=%i\e[m", j, m, i); //erroneous condition; should never run.
+  }
+}
+int main (int argc, char** argv)
+{
+  if(2 != argc) return 1;
+  //give number of players as argument to program when when about to execute
+  int players=atoi(argv[1]), i=1, m=0;
+  static struct termios oldt, newt;
+  tcgetattr(0, &oldt);
+  newt = oldt; newt.c_lflag &= ~10;
+  tcsetattr(0, 0, &newt);
+  printf("\e[mInput character-not-in-english-alphabet \e[90m(Enter, Space, Tab, a number, or a symbol)\e[m to end\n");
+  do
+  {
+    //total number of passed turns =3(i²-i)/2
+    for(int j=0; j<players; j++, m++)
+    {
+      printf("\e[0;%im", 30+j%7+1);
+      if(i*3==m) i++,m = 0;
+      printTurn(i,j,m);
+    }
+    printf("\e[m\n");
+  }while(isalpha(getchar()));
+  tcsetattr(0, 0, &oldt);
+}
