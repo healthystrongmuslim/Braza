@@ -13,10 +13,10 @@ bool exor(char bloc, char poly)//returns new in-bit; up to 8-bit polynomial supp
   while(bloc) val^=bloc&1, bloc>>=1;// while(poly) val^=(bloc&1)&(poly&1), bloc>>=1,poly>>=1, bitcount+=val;
   return val;// return bitcount%2; return bitcount&1;
 }
-void argParse(int& bs, int poLim, char* argv, char& dat,int deflt =1010)
+void argParse(int& bs, int poLim, char* argv, char& dat,int deflt =1010, int min=11)
 {
   int tmp=bs;
-  try{bs = std::stoi(argv); if((bs>poLim or bs<11)) print("Out of limit\tDefaulting…\n"), bs=deflt;}
+  try{bs = std::stoi(argv); if((bs>poLim or bs<min)) print("Out of limit\tDefaulting…\n"), bs=deflt;}
   catch (std::invalid_argument &e){print("Invalid arg\tDefaulting…\n"); bs=deflt;}
   catch (std::out_of_range &e){print("Out of range of int\tDefaulting…\n"); bs=deflt;}
   //print("Polynomial in bits (rightmost is degree 1 i.e. x^1): \n");
@@ -39,7 +39,7 @@ int main(int argc, char** argv)
   for(int i=0; i<8; i++) if(poly>>i) degree++;
   int iters=1<<degree;
   print("\e[94mPolynomial: {:0>8b}\e[m\nDegree: {}\tIterations: {}\n",poly,degree,iters);
-  argParse(bs, poLim, argv[2], bloc,1);
+  argParse(bs, poLim, argv[2], bloc,1,1);
   if((bloc>>degree)>(poly>>degree)) print("\e[33mSeed/Initial vector must not be wider than polynomial\e[m\nEqualling…"), bloc=poly;
   print("\e[94mSeed/Initial vector: {:0>8b}\e[m\n",bloc);
 
